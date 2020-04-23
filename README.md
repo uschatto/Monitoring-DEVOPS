@@ -18,3 +18,10 @@ However the issues with using dark launching are as follows: Technical debt like
 
 > *Describe the Netflix style green-blue deployment. What can canary analysis tell us?*
 <p align="justify">Blue-green deployment involves having a live green instance which has the newly deployed changes. The live traffic flows through this instance. The proxy connects to the green instance as well as the blue failover instance. Whenever a commit is made which turns out to be a bad one, the healthchecker detects the same and failsover to the blue instance. The advantage of this deployment is that the rollback is seamless but the disadvantage is that the infrastructure cost rises up because of double the amount of infrastructure needed now. The migration of live data can be complex. The netflix style of deployment first builds an image for the microservice, then builds clusters via spinnaker and then does the redblack deployment. Canary analysis can tell whether a deployment can be safely promoted to more and more users. Each metric is classified as either “Pass”, “High”, or “Low”, based on confidence intervals, computed by the Mann-Whitney U test, to classify whether a significant difference exists between the canary and baseline metrics. The canary score is calculated as the ratio of metrics classified as “Pass” out of the total number of metrics. </p>
+
+
+<p align="center"> 
+<img src="https://media.github.ncsu.edu/user/12214/files/1e62d600-84f1-11ea-8e2a-1119673265de" width="800" height="200">
+</p>
+
+[*SCREENCAST*](https://drive.google.com/open?id=14738bN3TlmcxQBwz9jAqdYm2j1Uhxduk)
